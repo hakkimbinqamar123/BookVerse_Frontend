@@ -60,6 +60,41 @@ function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}/
+      <section className='md:px-40 p-4 flex flex-col justify-center items-center mt-9'>
+        <h1 className='font-bold'>TESTIMONIALS</h1>
+        <h1>See What Others Are Saying</h1>
+        <div className='md:grid grid-cols-3 w-full mt-4 '>
+          <div className="p-3 transition-all duration-300 hover:-translate-y-1">
+            <div className='shadow p-3 rounded flex flex-col justify-content items-center'>
+              <img className='rounded-full' height={"150px"} width={"150px"} src="https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000" alt="" />
+              <p className='text-xl font-bold mt-2'>Author</p>
+              <div className='text-center'>
+                <p>“BookVerse has completely transformed my reading experience. The collection is vast, beautifully categorized, and the recommendations are always spot-on. I’ve discovered so many amazing authors I wouldn’t have found elsewhere. It feels like a personal library built just for me!”</p>
+              </div>
+            </div>
+          </div>
+          <div className="p-3 transition-all duration-300 hover:-translate-y-1">
+            <div className='shadow p-3 rounded flex flex-col justify-content items-center'>
+              <img className='rounded-full' height={"150px"} width={"150px"} src="https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000" alt="" />
+              <p className='text-xl font-bold mt-2'>Author</p>
+              <div className='text-center'>
+                <p>“BookVerse has completely transformed my reading experience. The collection is vast, beautifully categorized, and the recommendations are always spot-on. I’ve discovered so many amazing authors I wouldn’t have found elsewhere. It feels like a personal library built just for me!”</p>
+              </div>
+            </div>
+          </div>
+          <div className="p-3 transition-all duration-300 hover:-translate-y-1">
+            <div className='shadow p-3 rounded flex flex-col justify-content items-center'>
+              <img className='rounded-full' height={"150px"} width={"150px"} src="https://img.freepik.com/premium-photo/happy-man-ai-generated-portrait-user-profile_1119669-1.jpg?w=2000" alt="" />
+              <p className='text-xl font-bold mt-2'>Author</p>
+              <div className='text-center'>
+                <p>“BookVerse has completely transformed my reading experience. The collection is vast, beautifully categorized, and the recommendations are always spot-on. I’ve discovered so many amazing authors I wouldn’t have found elsewhere. It feels like a personal library built just for me!”</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <Footer />
     </>
   )
