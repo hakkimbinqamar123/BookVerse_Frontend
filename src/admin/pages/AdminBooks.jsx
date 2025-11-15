@@ -1,10 +1,11 @@
 import React from 'react'
+import AdminHeader from '../components/AdminHeader'
 
 function AdminBooks() {
   return (
-    <div>
-      
-    </div>
+    <>
+      <AdminHeader/>
+    </>
   )
 }
 

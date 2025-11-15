@@ -13,6 +13,7 @@ import AdminCareers from './admin/pages/AdminCareers'
 import AdminSettings from './admin/pages/AdminSettings'
 import { useEffect, useState } from 'react'
 import PreLoader from './common/pages/PreLoader'
+import ViewBook from './user/pages/ViewBook'
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
         <Route path='/all-books' element={<AllBooks/>}/>
         <Route path='/careers' element={<Careers/>}/>
         <Route path='/profile' element={<Profile/>}/>
-        <Route path='/view-book/:id' element={<LandingPage/>}/>
+        <Route path='/view-book/:id' element={<ViewBook/>}/>
 
         {/* admin */}
         <Route path='/admin-home' element={<AdminHome/>}/>
