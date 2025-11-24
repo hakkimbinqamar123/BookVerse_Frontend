@@ -3,10 +3,27 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import { IoEye } from "react-icons/io5";
 import { IoMdEyeOff } from "react-icons/io";
+import axios from 'axios';
+import { registerAPI } from '../../services/allAPI';
 
 function Auth({ register }) {
   const [viewPassword, setViewPassword] = useState(false)
-  console.log(viewPassword)
+  const [useDetails, setUseDetails] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
+
+  const handleRegister = async () =>{
+    const {username, email, password} = useDetails;
+    if(!email || !password || (register && !username)){
+      alert("Please fill all the fields")
+    } else {
+      const result = await registerAPI(useDetails);
+      console.log(result)
+    }
+  }
+
   return (
     <>
       <div className='w-full min-h-screen flex flex-col justify-center items-center bg-[url(https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg)] bg-cover bg-center'>
@@ -20,15 +37,15 @@ function Auth({ register }) {
             <form>
               {register && <div className='my-4'>
                 <label>Username</label>
-                <input type="text" placeholder='Username' className='w-full bg-white p-2 mt-2 rounded placeholder-gray-500 text-black' />
+                <input value={useDetails.username} onChange={(e)=> setUseDetails({...useDetails, username: e.target.value})} type="text" placeholder='Username' className='w-full bg-white p-2 mt-2 rounded placeholder-gray-500 text-black' />
               </div>}
               <div className='my-4'>
                 <label>Email</label>
-                <input type="email" placeholder='Email' className='w-full bg-white p-2 mt-2 rounded placeholder-gray-500 text-black' />
+                <input value={useDetails.email} onChange={(e)=> setUseDetails({...useDetails, email: e.target.value})} type="email" placeholder='Email' className='w-full bg-white p-2 mt-2 rounded placeholder-gray-500 text-black' />
               </div>
               <div className='my-4'>
                 <label>Password</label>
-                <input type={viewPassword ?"text" : "password"} placeholder='Password' className='w-full bg-white p-2 mt-2 rounded placeholder-gray-500 text-black' />
+                <input value={useDetails.password} onChange={(e)=> setUseDetails({...useDetails, password: e.target.value})}  type={viewPassword ?"text" : "password"} placeholder='Password' className='w-full bg-white p-2 mt-2 rounded placeholder-gray-500 text-black' />
                { viewPassword ?
                 <button type='button'><IoEye onClick={()=>setViewPassword(false)} className='text-gray-500 cursor-pointer mt-2' style={{marginLeft: "-30px"}}/></button>
                :
@@ -36,7 +53,7 @@ function Auth({ register }) {
                 }
               </div>
               <p className='text-xs text-orange-400 mt-2'>Never share your password with others</p>
-              <button type='button' className='bg-green-700 p-2 w-full rounded mt-4'>
+              <button onClick={handleRegister} type='button' className='bg-green-700 p-2 w-full rounded mt-4'>
                 {register ? "Register" : "Login"}
               </button>
               <div className='mt-3'>

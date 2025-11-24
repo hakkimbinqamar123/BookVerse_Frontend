@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../../common/components/Header'
 import Footer from '../../common/components/Footer'
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { IoLocation } from "react-icons/io5";
 
 function Careers() {
+  const [modalStatus, setModalStatus] = useState(false);
   return (
     <>
       <Header />
@@ -28,7 +29,7 @@ function Careers() {
               <h1 className='text-xl pb-3 font-bold'>Frontend Developer</h1>
               <hr />
             </div>
-            <button className="bg-blue-900 text-white p-3 ms-5 flex items-center">
+            <button onClick={() => setModalStatus(true)} className="bg-blue-900 text-white p-3 ms-5 flex items-center">
               Apply
               <FaArrowUpRightFromSquare className='ms-2' />
             </button>
@@ -41,6 +42,78 @@ function Careers() {
           <p className='text-lg my-2 text-justify'>Description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab inventore, quibusdam quas quos distinctio, ut in eveniet quaerat laboriosam eius odio quam placeat voluptatem veritatis reiciendis dolore fugiat! Quia, obcaecati.</p>
         </div>
       </div>
+
+      {modalStatus && <div className="fixed inset-0 z-10 flex items-center justify-center bg-black/50">
+        <div className="bg-white rounded-md shadow-lg w-full max-w-xl">
+          <div className="flex items-center justify-between px-5 py-3 border-b">
+            <h2 className="text-lg font-semibold">Application Form</h2>
+            <button className='text-2xl font-bold cursor-pointer' onClick={()=> setModalStatus(false)}>×</button>
+          </div>
+
+          <div className="px-5 py-4">
+            <form className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+                />
+                <input
+                  type="text"
+                  placeholder="Qualification"
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  type="email"
+                  placeholder="Email Id"
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
+                />
+                <input
+                  type="text"
+                  placeholder="Phone"
+                  className="w-full border border-gray-300 rounded px-3 py-2 text-sm "
+                />
+              </div>
+
+              <textarea
+                rows="4"
+                placeholder="Cover Letter"
+                className="w-full border border-gray-300 rounded px-3 py-2 text-sm resize-none "
+              />
+
+              <div className="space-y-1">
+                <p className="text-sm font-medium">Upload Resume:</p>
+                <label className="inline-block">
+                  <input
+                    type="file"
+                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0
+                  file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
+                  />
+                </label>
+              </div>
+
+              <div className="flex justify-end gap-3 pt-2">
+                <button
+                  type="reset"
+                  className="px-5 py-2 rounded text-sm font-semibold bg-amber-500 text-white hover:bg-amber-600"
+                >
+                  Reset
+                </button>
+                <button
+                  type="submit"
+                  className="px-5 py-2 rounded text-sm font-semibold bg-green-600 text-white hover:bg-green-700"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      }
       <Footer />
     </>
   )
